@@ -1,3 +1,6 @@
+QBCore = nil
+TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
+
 local ResetStress = false
 
 RegisterServerEvent("qb-hud:Server:UpdateStress")
@@ -19,7 +22,6 @@ AddEventHandler('qb-hud:Server:UpdateStress', function(StressGain)
             newStress = 100
         end
         Player.Functions.SetMetaData("stress", newStress)
-		TriggerClientEvent("hud:client:UpdateStress", src, newStress)
 	end
 end)
 
@@ -42,8 +44,7 @@ AddEventHandler('qb-hud:Server:GainStress', function(amount)
             newStress = 100
         end
         Player.Functions.SetMetaData("stress", newStress)
-        TriggerClientEvent("hud:client:UpdateStress", src, newStress)
-        TriggerClientEvent('QBCore:Notify', src, 'Gained stress', 'primary', 1500)
+        TriggerClientEvent('QBCore:Notify', src, 'Getting Stressed', 'error', 1500)
 	end
 end)
 
@@ -66,7 +67,6 @@ AddEventHandler('qb-hud:Server:RelieveStress', function(amount)
             newStress = 100
         end
         Player.Functions.SetMetaData("stress", newStress)
-        TriggerClientEvent("hud:client:UpdateStress", src, newStress)
-        TriggerClientEvent('QBCore:Notify', src, 'Stress lightened')
+        TriggerClientEvent('QBCore:Notify', src, 'You Are Relaxing')
 	end
 end)

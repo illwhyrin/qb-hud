@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+    <div id="statusHud">
+        <div class="barHealth">
+            <svg width="53" height="53">
+                <circle class="progress progress-health" stroke="green" stroke-width="3" style="stroke-opacity: 1;" fill="#1c1c20" r="20" cx="25" cy="25" stroke-dasharray="80 30" stroke-linecap="round" stroke-dashoffset="0"/>
+            </svg>
+            <img class="barIconHealth" src="img/heart.svg"></img>
+        </div>
+        <div class="bar">
+            <svg width="53" height="53" style="position: relative; left:22px;">
+                <circle class="progress progress-armor" stroke="blue" stroke-width="3" style="stroke-opacity: 1;" fill="#1c1c20" r="20" cx="25" cy="25" stroke-dasharray="80 30" stroke-linecap="round" stroke-dashoffset="0"/>
+            </svg>
+            <img class="barIconArmor" src="img/shield.svg"></img>
+        </div>
+        <div class="bar">
+            <svg width="53" height="53" style="position: relative; left:45px;">
+                <circle class="progress progress-burger" stroke="orange" stroke-width="3" style="stroke-opacity: 1;" fill="#1c1c20" r="20" cx="25" cy="25" stroke-dasharray="80 30" stroke-linecap="round" stroke-dashoffset="0"/>
+            </svg>
+            <img class="barIconYemek" src="img/burger.svg"></img>
+        </div>
+        <div class="bar">
+            <svg width="53" height="53" style="position: relative; left:66px;">
+                <circle class="progress progress-water" stroke="blue" stroke-width="3" style="stroke-opacity: 1;" fill="#1c1c20" r="20" cx="25" cy="25" stroke-dasharray="80 30" stroke-linecap="round" stroke-dashoffset="0"/>
+            </svg>
+            <img class="barIconSu" src="img/water.svg"></img>
+        </div>
+        <div class="bar">
+            <svg width="53" height="53" style="position: relative; left:87px;">
+                <circle class="progress progress-stress" stroke="red" stroke-width="3" style="stroke-opacity: 1;" fill="#1c1c20" r="20" cx="25" cy="25" stroke-dasharray="80 30" stroke-linecap="round" stroke-dashoffset="0"/>
+            </svg>
+            <img class="barIconStress" src="img/brain.svg"></img>
+        </div>
+        <div id="varSetOxy" class="barOxy">
+            <svg width="53" height="53" style="position: relative; left:110px;">
+                <circle class="progress progress-oxygen" stroke="yellow" stroke-width="3" style="stroke-opacity: 1;" fill="#1c1c20" r="20" cx="25" cy="25" stroke-dasharray="80 30" stroke-linecap="round" stroke-dashoffset="0"/>
+            </svg>
+            <img class="barIconOxy" src="img/oxygen.svg"></img>
+        </div>
+        <div id="varSetVoice" class="voice" style="position: relative; top: 10; left: 265;">
+            <div class="voice3" style="position: relative; right: 3%;"></div>
+            <div class="voice2" style="position: relative; right: 1%;"></div>
+            <div class="voice1" style="position: relative; right: 3%;"></div>
+        </div>
+    </div>
+</body>
+
+<script src="script.js" type="text/javascript"></script>
+</html>

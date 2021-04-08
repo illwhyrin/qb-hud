@@ -1,24 +1,9 @@
-QBHud = {}
+Config = {}
 
-QBHud.Show = true
+Config.MinimumStress = 50
+Config.MinimumSpeed = 250
 
-QBHud.Money = {}
-QBHud.Money.ShowConstant = false -- Show money constantly
-
-QBHud.Radar = {}
-QBHud.Radar.NoRadarVehicles = {
-    "bmx",
-    "cruiser",
-    "fixter",
-    "scorcher",
-    "tribike",
-    "tribike2",
-    "tribike3",
-}
-
-QBStress = {}
-
-QBStress.Intensity = {
+Config.Intensity = {
     ["shake"] = {
         [1] = {
             min = 50,
@@ -48,10 +33,7 @@ QBStress.Intensity = {
     }
 }
 
-QBStress.MinimumStress = 50
-QBStress.MinimumSpeed = 250
-
-QBStress.EffectInterval = {
+Config.EffectInterval = {
     [1] = {
         min = 50,
         max = 60,
