@@ -1,5 +1,5 @@
 fx_version 'cerulean'
-games 'gta5' 
+game 'gta5' 
 
 description 'QB-Hud'
 version '1.0.0'
