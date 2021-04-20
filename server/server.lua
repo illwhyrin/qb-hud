@@ -1,12 +1,23 @@
-local ResetStress = false
 QBCore = nil
 TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
+
+-- Money
 
 QBCore.Commands.Add("cash", "Check your cash balance", {}, false, function(source, args)
 	local src = source
 	local xPlayer = QBCore.Functions.GetPlayer(src)
-	TriggerClientEvent('hud:client:ShowMoney', source, xPlayer['PlayerData']['money']['cash'])
+	TriggerClientEvent('hud:client:ShowMoney', src, "cash")
 end)
+
+QBCore.Commands.Add("bank", "Check your bank balance", {}, false, function(source, args)
+	local src = source
+	local xPlayer = QBCore.Functions.GetPlayer(src)
+	TriggerClientEvent('hud:client:ShowMoney', src, "bank")
+end)
+
+-- Stress
+
+local ResetStress = false
 
 RegisterServerEvent("qb-hud:Server:UpdateStress")
 AddEventHandler('qb-hud:Server:UpdateStress', function(StressGain)
@@ -27,7 +38,6 @@ AddEventHandler('qb-hud:Server:UpdateStress', function(StressGain)
             newStress = 100
         end
         Player.Functions.SetMetaData("stress", newStress)
-		TriggerClientEvent("hud:client:UpdateStress", src, newStress)
 	end
 end)
 
@@ -50,8 +60,7 @@ AddEventHandler('qb-hud:Server:GainStress', function(amount)
             newStress = 100
         end
         Player.Functions.SetMetaData("stress", newStress)
-        TriggerClientEvent("hud:client:UpdateStress", src, newStress)
-        TriggerClientEvent('QBCore:Notify', src, 'Stress Gained', 'primary', 1500)
+        TriggerClientEvent('QBCore:Notify', src, 'Getting Stressed', 'error', 1500)
 	end
 end)
 
@@ -74,24 +83,6 @@ AddEventHandler('qb-hud:Server:RelieveStress', function(amount)
             newStress = 100
         end
         Player.Functions.SetMetaData("stress", newStress)
-        TriggerClientEvent("hud:client:UpdateStress", src, newStress)
-        TriggerClientEvent('QBCore:Notify', src, 'Stress Relieved')
+        TriggerClientEvent('QBCore:Notify', src, 'You Are Relaxing')
 	end
-end)
-
-QBCore.Functions.CreateCallback('QBCore:HasMoney', function(source, cb, count)
-	local retval = false
-	local Player = QBCore.Functions.GetPlayer(source)
-	if Player ~= nil then 
-		if Player.Functions.RemoveMoney('cash', count, true) == true then
-			retval = true
-		end
-	end
-	
-	cb(retval)
-end)
-
-QBCore.Functions.CreateUseableItem('watch', function(source)
-    local src = source
-    TriggerClientEvent('hud:toggleWatch', src)
 end)
