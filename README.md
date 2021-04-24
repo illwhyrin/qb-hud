@@ -1,4 +1,5 @@
 # qb-hud
+Advanced Hud for QB-Core Framework :heart: :shield: :pizza: :milk_glass: 
 
 ## Dependencies
 - [qb-core](https://github.com/qbcore-framework/qb-core)
