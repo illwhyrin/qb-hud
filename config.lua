@@ -1,6 +1,6 @@
 Config = {}
 Config.Money = {}
-Config.Money.ShowConstant = true
+Config.Money.ShowConstant = false
 Config.MinimumStress = 50
 Config.MinimumSpeed = 250
 

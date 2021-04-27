@@ -34,8 +34,8 @@ Citizen.CreateThread(function()
             	local thirst = PlayerData.metadata["thirst"]
             	local stress = PlayerData.metadata["stress"]
             	local armor  = GetPedArmour(player)
-				--local talking = false
-				--local mumbleData = exports["mumble-voip"]:RetrieveMumbleData()
+				local talking = NetworkIsPlayerTalking(PlayerId())
+				local voicedata = exports["pma-voice"]:GetVoiceData()
 
             	if IsEntityInWater(player) then
                 	oxy = GetPlayerUnderwaterTimeRemaining(PlayerId()) * 10
@@ -47,22 +47,14 @@ Citizen.CreateThread(function()
 					SendNUIMessage({show = false})
 				end
 
---[[ 				if mumbleData and mumbleData[svrId] and not mumbleData[svrId].radioActive and NetworkIsPlayerTalking(PlayerId()) then 
-					talking = 'normal'
-				elseif mumbleData and mumbleData[svrId] and mumbleData[svrId].radioActive then 
-					talking = 'radio'
-				else 
-					talking = false 
-				end ]]
-
             	SendNUIMessage({
                 	type = "updateStatusHud",
 					show = true,
                 	varSetHealth = health,
                 	varSetArmor = armor,
                 	varSetOxy = oxy,
-                	--varSetVoice = mumbleData,
-					--talking = talking,
+                	varSetVoice = voicedata,
+					talking = talking,
                 	varSetHunger = hunger,
                 	varSetThirst = thirst,
                 	varSetStress = stress,

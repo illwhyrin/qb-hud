@@ -4,15 +4,11 @@ TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
 -- Money
 
 QBCore.Commands.Add("cash", "Check your cash balance", {}, false, function(source, args)
-	local src = source
-	local xPlayer = QBCore.Functions.GetPlayer(src)
-	TriggerClientEvent('hud:client:ShowMoney', src, "cash")
+	TriggerClientEvent('hud:client:ShowMoney', source, "cash") 
 end)
 
 QBCore.Commands.Add("bank", "Check your bank balance", {}, false, function(source, args)
-	local src = source
-	local xPlayer = QBCore.Functions.GetPlayer(src)
-	TriggerClientEvent('hud:client:ShowMoney', src, "bank")
+	TriggerClientEvent('hud:client:ShowMoney', source, "bank")
 end)
 
 -- Stress

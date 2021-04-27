@@ -52,6 +52,16 @@ $(function () {
         $(".voice3").removeClass("hidden");
       }
 
+      if (event.data.talking == 1) {
+        $('.voice1').css('background', 'white')
+        $('.voice2').css('background', 'white')
+        $('.voice3').css('background', 'white')
+      } else if (event.data.talking == false) {
+        $('.voice1').css('background', 'grey')
+        $('.voice2').css('background', 'grey')
+        $('.voice3').css('background', 'grey')
+      }
+
       changeColor($(".progress-health"), event.data.varSetHealth, false)
       changeColor($(".progress-armor"), event.data.varSetArmor, false)
       changeColor($(".progress-burger"), event.data.varSetHunger, false)
